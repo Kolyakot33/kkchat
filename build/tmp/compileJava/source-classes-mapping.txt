@@ -1,0 +1,4 @@
+ru/kolyakot33/kkchat/EventsListener.java
+ ru.kolyakot33.kkchat.EventsListener
+ru/kolyakot33/kkchat/Main.java
+ ru.kolyakot33.kkchat.Main
