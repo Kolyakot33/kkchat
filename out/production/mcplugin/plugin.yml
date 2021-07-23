@@ -1,0 +1,4 @@
+name: mcplugin
+main: ru.kolyakot33.plugin.Main
+version: 1.0
+api-version: 1.16
