@@ -26,7 +26,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Build jar
-      run: ./gradlew jar
+      run: ./gradlew fatJar
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
