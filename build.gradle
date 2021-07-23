@@ -42,3 +42,11 @@ jar {
         attributes 'Main-Class': 'ru.kolyakot33.kkchat.Main'
     }
 }
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'ru.kolyakot33.kkchat.Main'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
