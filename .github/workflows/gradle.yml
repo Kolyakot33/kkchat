@@ -25,6 +25,8 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Run the Gradle package task
-      run: ./gradlew -b ci.gradle package
+    - uses: actions/upload-artifact@v2
+      with:
+      name: my-artifact
+      path: build/libs/project.jar
 
