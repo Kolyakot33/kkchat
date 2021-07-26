@@ -33,7 +33,7 @@ repositories {
 
 dependencies {
     // Pick only one of these and read the comment in the repositories block.
-    compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT' // The Spigot API with no shadowing. Requires the OSS repo.
+    compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT' // The Spigot API with no shadowing. Requires the OSS repo.
 
 }
 

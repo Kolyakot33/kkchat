@@ -1,14 +1,16 @@
 package ru.kolyakot33.kkchat;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Arrays;
 import java.util.logging.Level;
 
 
 public class Main extends JavaPlugin {
     FileConfiguration configuration = getConfig();
-
     public int range;
     public String globalSymbol;
     public String globalFormat;
@@ -30,6 +32,22 @@ public class Main extends JavaPlugin {
         setEnabled(true);
         getLogger().log(Level.INFO , "Loaded!");
     }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (command.getName().equalsIgnoreCase("kkchat")) {
+            if (args[0].equalsIgnoreCase("reload")) {
+                if (sender.hasPermission("kkchat.reload")) {
+                    reloadConfig();
+                    sender.sendMessage("Конфигурация перезагружена!");
+                } else {
+                    sender.sendMessage("У вас нет разрешения");
+                }
+            }
+        }
+        return super.onCommand(sender, command, label, args);
+    }
+
     public static Main getInstance() {
         return INSTANCE;
     }
