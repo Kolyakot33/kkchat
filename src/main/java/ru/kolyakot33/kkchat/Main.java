@@ -5,7 +5,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Arrays;
 import java.util.logging.Level;
 
 
@@ -26,13 +25,12 @@ public class Main extends JavaPlugin {
         globalFormat = configuration.getString("global-chat-format");
         localFormat = configuration.getString("local-chat-format");
         welcomeMessage = configuration.getString("welcome-message");
-        getLogger().log(Level.INFO , "Configuration loaded!");
+        getLogger().log(Level.INFO, "Configuration loaded!");
         getServer().getPluginManager().registerEvents(new EventsListener(), this);
-        getLogger().log(Level.INFO , "Events registered!");
+        getLogger().log(Level.INFO, "Events registered!");
         setEnabled(true);
-        getLogger().log(Level.INFO , "Loaded!");
+        getLogger().log(Level.INFO, "Loaded!");
     }
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("kkchat")) {
