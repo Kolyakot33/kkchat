@@ -16,7 +16,6 @@ public class Main extends JavaPlugin {
     public String localFormat;
     private static Main INSTANCE;
     public String welcomeMessage;
-    @Override
     public void onEnable() {
         INSTANCE = this;
         saveDefaultConfig();
@@ -31,7 +30,6 @@ public class Main extends JavaPlugin {
         setEnabled(true);
         getLogger().log(Level.INFO, "Loaded!");
     }
-    @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("kkchat")) {
             if (args[0].equalsIgnoreCase("reload")) {
