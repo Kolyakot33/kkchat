@@ -9,6 +9,10 @@ public class CommandHandler implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length == 0) {
+            sender.sendMessage("KKChat by Kolyakot33.");
+            return true;
+        }
         if (args[0].equalsIgnoreCase("reload")) {
             if (sender.hasPermission("kkchat.reload")) {
                     instance.reloadConfig();
@@ -16,9 +20,11 @@ public class CommandHandler implements CommandExecutor {
             } else {
                     sender.sendMessage("У вас нет разрешения");
             }
-        } else {
-                sender.sendMessage("KKChat by Kolyakot33.");
+            return true;
         }
-        return true;
+        else {
+            sender.sendMessage("KKChat by Kolyakot33.");
+            return true;
+        }
     }
 }
