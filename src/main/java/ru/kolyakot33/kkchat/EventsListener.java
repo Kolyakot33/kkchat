@@ -12,9 +12,8 @@ import java.util.logging.Logger;
 
 import static org.bukkit.Bukkit.getLogger;
 
-@SuppressWarnings("unused")
 public class EventsListener implements Listener {
-    final Main INSTANCE = Main.getInstance();
+    final KKChat instance = KKChat.getInstance();
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
@@ -22,9 +21,9 @@ public class EventsListener implements Listener {
         Logger log = getLogger();
         String msgToSend;
         //Global
-        if (msg.startsWith("!")) {
-            msg = msg.replaceFirst("!", "");
-            msgToSend = INSTANCE.globalFormat.replace("%player%", e.getPlayer().getDisplayName());
+        if (msg.startsWith(instance.globalSymbol)) {
+            msg = msg.replaceFirst(instance.globalSymbol, "");
+            msgToSend = instance.globalFormat.replace("%player%", e.getPlayer().getDisplayName());
             msgToSend = msgToSend.replace("%message%", msg);
             for (Player pp : Bukkit.getOnlinePlayers()) {
                 pp.sendMessage(msgToSend);
@@ -33,13 +32,13 @@ public class EventsListener implements Listener {
         }
         //Local
         else {
-            msgToSend = INSTANCE.localFormat.replace("%player%", e.getPlayer().getDisplayName());
+            msgToSend = instance.localFormat.replace("%player%", e.getPlayer().getDisplayName());
             msgToSend = msgToSend.replace("%message%", msg);
             for (Player pp : Bukkit.getOnlinePlayers()) {
                 if (Math.sqrt(
                         Math.pow(Math.abs(pp.getLocation().getX() - e.getPlayer().getLocation().getX()), 2) +
                                 Math.pow(Math.abs(pp.getLocation().getZ() - e.getPlayer().getLocation().getZ()), 2)
-                ) <= INSTANCE.range) {
+                ) <= instance.range) {
 
                     pp.sendMessage(msgToSend);
 
@@ -52,6 +51,6 @@ public class EventsListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
-        e.getPlayer().sendMessage(INSTANCE.welcomeMessage);
+        e.getPlayer().sendMessage(instance.welcomeMessage);
     }
 }
