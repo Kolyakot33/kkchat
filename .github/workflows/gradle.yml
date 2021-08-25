@@ -29,6 +29,6 @@ jobs:
       run: ./gradlew fatJar
     - uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
+        name: kkchat
         path: build/libs/kkchat-SNAPSHOT.jar
 
