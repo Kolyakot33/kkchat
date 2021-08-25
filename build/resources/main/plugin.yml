@@ -1,8 +1,0 @@
-name: kkchat
-main: ru.kolyakot33.kkchat.Main
-version: 1.1
-api-version: 1.16
-author: Kolyakot33
-commands:
-  kkchat:
-    description: Main kkchat command.
