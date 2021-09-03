@@ -2,7 +2,6 @@ package ru.kolyakot33.kkchat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.Bukkit;
 
 
 public class CommandHandler implements CommandExecutor {
@@ -17,7 +16,7 @@ public class CommandHandler implements CommandExecutor {
                     instance.loadConfigValues();
                     sender.sendMessage(instance.reloadMessage);
             } else {
-                    sender.sendMessage(Bukkit.getPermissionMessage());
+                    sender.sendMessage(command.getPermissionMessage());
             }
             return true;
         }

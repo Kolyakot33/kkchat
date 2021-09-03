@@ -3,3 +3,4 @@ local-chat-range: 100
 global-chat-format: "§6[G]§r %player%: %message%"
 local-chat-format: "§a[L]§r %player%: %message%"
 welcome-message: "§aДля того чтобы написать в глобальный чат поставь '!' перед сообщением"
+reload-message: "Конфиг перезагружен."
