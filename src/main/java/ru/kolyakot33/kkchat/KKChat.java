@@ -14,6 +14,7 @@ public class KKChat extends JavaPlugin {
     public String localFormat;
     private static KKChat instance;
     public String welcomeMessage;
+    public String reloadMessage;
     @Override
     public void onEnable() {
         instance = this;
@@ -36,6 +37,7 @@ public class KKChat extends JavaPlugin {
         globalFormat = configuration.getString("global-chat-format");
         localFormat = configuration.getString("local-chat-format");
         welcomeMessage = configuration.getString("welcome-message");
+        reloadMessage = configuration.getString("reload-message");
         getLogger().log(Level.INFO, "Configuration loaded!");
     }
 }
