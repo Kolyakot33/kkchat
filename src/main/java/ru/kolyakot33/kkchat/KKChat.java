@@ -30,7 +30,7 @@ public class KKChat extends JavaPlugin {
         return instance;
     }
     
-    public static void loadConfigValues() {
+    public void loadConfigValues() {
         range = configuration.getInt("local-chat-range");
         globalSymbol = configuration.getString("global-chat-symbol");
         globalFormat = configuration.getString("global-chat-format");
@@ -39,10 +39,3 @@ public class KKChat extends JavaPlugin {
         getLogger().log(Level.INFO, "Configuration loaded!");
     }
 }
-        
-
-        
-
-   
-
-
