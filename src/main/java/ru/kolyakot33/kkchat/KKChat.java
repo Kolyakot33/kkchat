@@ -18,12 +18,7 @@ public class KKChat extends JavaPlugin {
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
-        range = configuration.getInt("local-chat-range");
-        globalSymbol = configuration.getString("global-chat-symbol");
-        globalFormat = configuration.getString("global-chat-format");
-        localFormat = configuration.getString("local-chat-format");
-        welcomeMessage = configuration.getString("welcome-message");
-        getLogger().log(Level.INFO, "Configuration loaded!");
+        loadConfigValues();
         getServer().getPluginManager().registerEvents(new EventsListener(), this);
         getLogger().log(Level.INFO, "Events registered!");
         getCommand("kkchat").setExecutor(new CommandHandler());
@@ -33,5 +28,14 @@ public class KKChat extends JavaPlugin {
 
     public static KKChat getInstance() {
         return instance;
+    }
+    
+    public void loadConfigValues() {
+        range = configuration.getInt("local-chat-range");
+        globalSymbol = configuration.getString("global-chat-symbol");
+        globalFormat = configuration.getString("global-chat-format");
+        localFormat = configuration.getString("local-chat-format");
+        welcomeMessage = configuration.getString("welcome-message");
+        getLogger().log(Level.INFO, "Configuration loaded!");
     }
 }

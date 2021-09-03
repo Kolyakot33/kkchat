@@ -16,6 +16,7 @@ public class CommandHandler implements CommandExecutor {
         if (args[0].equalsIgnoreCase("reload")) {
             if (sender.hasPermission("kkchat.reload")) {
                     instance.reloadConfig();
+                    instance.loadConfigValues();
                     sender.sendMessage("Конфигурация перезагружена!");
             } else {
                     sender.sendMessage("У вас нет разрешения");
