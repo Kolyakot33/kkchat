@@ -2,6 +2,7 @@ package ru.kolyakot33.kkchat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.Bukkit;
 
 
 public class CommandHandler implements CommandExecutor {
@@ -14,9 +15,9 @@ public class CommandHandler implements CommandExecutor {
             if (sender.hasPermission("kkchat.reload")) {
                     instance.reloadConfig();
                     instance.loadConfigValues();
-                    sender.sendMessage("Конфигурация перезагружена!");
+                    sender.sendMessage(instance.reloadMessage);
             } else {
-                    sender.sendMessage("У вас нет разрешения");
+                    sender.sendMessage(Bukkit.getPermissionMessage());
             }
             return true;
         }
