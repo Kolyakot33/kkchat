@@ -35,10 +35,7 @@ public class EventsListener implements Listener {
             msgToSend = instance.localFormat.replace("%player%", e.getPlayer().getDisplayName());
             msgToSend = msgToSend.replace("%message%", msg);
             for (Player pp : Bukkit.getOnlinePlayers()) {
-                if (Math.sqrt(
-                        Math.pow(Math.abs(pp.getLocation().getX() - e.getPlayer().getLocation().getX()), 2) +
-                                Math.pow(Math.abs(pp.getLocation().getZ() - e.getPlayer().getLocation().getZ()), 2)
-                ) <= instance.range) {
+                if (e.getPlayer().getLocation().distance(pp.getLocation()) <= instance.range) {
 
                     pp.sendMessage(msgToSend);
 
