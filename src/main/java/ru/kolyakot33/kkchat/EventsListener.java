@@ -11,10 +11,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.bukkit.Bukkit.getLogger;
+import static ru.kolyakot33.kkchat.utils.Utils.formatMessage;
 
 public class EventsListener implements Listener {
-    final KKChat instance = KKChat.getInstance();
-
+    KKChat instance;
+    public EventsListener() {
+        instance = KKChat.getInstance();
+    }
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         String msg = e.getMessage();
@@ -22,9 +25,7 @@ public class EventsListener implements Listener {
         String msgToSend;
         //Global
         if (msg.startsWith(instance.globalSymbol)) {
-            msg = msg.replaceFirst(instance.globalSymbol, "");
-            msgToSend = instance.globalFormat.replace("%player%", e.getPlayer().getDisplayName());
-            msgToSend = msgToSend.replace("%message%", msg);
+            msgToSend = formatMessage(msg.replaceFirst(instance.globalSymbol, ""), e.getPlayer(), instance.globalFormat);
             for (Player pp : Bukkit.getOnlinePlayers()) {
                 pp.sendMessage(msgToSend);
 
@@ -32,8 +33,7 @@ public class EventsListener implements Listener {
         }
         //Local
         else {
-            msgToSend = instance.localFormat.replace("%player%", e.getPlayer().getDisplayName());
-            msgToSend = msgToSend.replace("%message%", msg);
+            msgToSend = formatMessage(msg, e.getPlayer(), instance.localFormat);
             for (Player pp : Bukkit.getOnlinePlayers()) {
                 if (e.getPlayer().getLocation().distance(pp.getLocation()) <= instance.range) {
 

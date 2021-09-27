@@ -2,6 +2,7 @@ package ru.kolyakot33.kkchat;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import ru.kolyakot33.kkchat.utils.VaultHook;
 
 import java.util.logging.Level;
 
@@ -15,11 +16,15 @@ public class KKChat extends JavaPlugin {
     private static KKChat instance;
     public String welcomeMessage;
     public String reloadMessage;
+    public VaultHook vaultHook;
     @Override
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
         loadConfigValues();
+        if (getServer().getPluginManager().isPluginEnabled("Vault")) {
+            vaultHook = new VaultHook();
+        }
         getServer().getPluginManager().registerEvents(new EventsListener(), this);
         getLogger().log(Level.INFO, "Events registered!");
         getCommand("kkchat").setExecutor(new CommandHandler());
