@@ -1,9 +1,0 @@
-name: kkchat
-main: ru.kolyakot33.kkchat.KKChat
-version: 1.1
-api-version: 1.13
-author: Kolyakot33
-softdepend: [Vault]
-commands:
-  kkchat:
-    description: Main kkchat command.
