@@ -29,8 +29,8 @@ public class CommandHandler implements CommandExecutor {
         if (subcommand.equalsIgnoreCase("reload")) {
             if (sender.hasPermission("kkchat.reload")) {
                     instance.reloadConfig();
-                    instance.loadConfigValues();
-                    sender.sendMessage(instance.reloadMessage);
+                    Configuration.reloadConfigValues();
+                    sender.sendMessage(Configuration.reloadMessage);
             } else {
                     sender.sendMessage(command.getPermissionMessage());
             }

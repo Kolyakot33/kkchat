@@ -30,18 +30,14 @@ import static org.bukkit.Bukkit.getLogger;
 import static ru.kolyakot33.kkchat.utils.Utils.formatMessage;
 
 public class EventsListener implements Listener {
-    KKChat instance;
-    public EventsListener() {
-        instance = KKChat.getInstance();
-    }
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         String msg = e.getMessage();
         Logger log = getLogger();
         String msgToSend;
         //Global
-        if (msg.startsWith(instance.globalSymbol)) {
-            msgToSend = formatMessage(msg.replaceFirst(instance.globalSymbol, ""), e.getPlayer(), instance.globalFormat);
+        if (msg.startsWith(Configuration.globalSymbol)) {
+            msgToSend = formatMessage(msg.replaceFirst(Configuration.globalSymbol, ""), e.getPlayer(), Configuration.globalFormat);
             for (Player pp : Bukkit.getOnlinePlayers()) {
                 pp.sendMessage(msgToSend);
 
@@ -49,9 +45,9 @@ public class EventsListener implements Listener {
         }
         //Local
         else {
-            msgToSend = formatMessage(msg, e.getPlayer(), instance.localFormat);
+            msgToSend = formatMessage(msg, e.getPlayer(), Configuration.localFormat);
             for (Player pp : Bukkit.getOnlinePlayers()) {
-                if (e.getPlayer().getLocation().distance(pp.getLocation()) <= instance.range) {
+                if (e.getPlayer().getLocation().distance(pp.getLocation()) <= Configuration.range) {
 
                     pp.sendMessage(msgToSend);
 
@@ -64,6 +60,6 @@ public class EventsListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
-        e.getPlayer().sendMessage(instance.welcomeMessage);
+        e.getPlayer().sendMessage(Configuration.welcomeMessage);
     }
 }
