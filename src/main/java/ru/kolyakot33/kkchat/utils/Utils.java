@@ -21,18 +21,19 @@ import ru.kolyakot33.kkchat.KKChat;
 
 public class Utils {
     public static String formatMessage(String message, Player player, String format) {
-        VaultHook vaultHook = KKChat.getInstance().vaultHook;
+        VaultHook vaultHook = KKChat.getInstance().getVaultHook();
+        String formated;
         if (vaultHook != null) {
-            format = format.replace("\\{prefix\\}",
+            formated = format.replace("{prefix}",
                     vaultHook.getChat().getPlayerPrefix(player));
-            format = format.replace("\\{suffix\\}",
+            formated = formated.replace("{suffix}",
                     vaultHook.getChat().getPlayerSuffix(player));
         }else {
-            format = format.replace("\\{prefix\\}", "");
-            format = format.replace("\\{suffix\\}", "");
+            formated = format.replace("{prefix}", "");
+            formated = formated.replace("{suffix}", "");
         }
-        format = format.replace("\\{player\\}", player.getName());
-        format = format.replace("\\{message\\}", message);
-        return format;
+        formated = formated.replace("{player}", player.getName());
+        formated = formated.replace("{message}", message);
+        return formated;
     }
 }
