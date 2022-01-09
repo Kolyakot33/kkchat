@@ -1,1 +1,2 @@
 # kkchat
+Simple chat plugin
