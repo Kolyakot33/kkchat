@@ -25,7 +25,7 @@ repositories {
 dependencies {
     // Pick only one of these and read the comment in the repositories block.
     compileOnly 'org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT' // The Spigot API with no shadowing. Requires the OSS repo.
-    compileOnly 'com.github.MilkBowl:VaultAPI:1.7'
+    compileOnly 'com.github.MilkBowl:VaultAPI:1.7.1'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
