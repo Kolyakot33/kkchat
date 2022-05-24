@@ -35,7 +35,6 @@ public class KKChat extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EventsListener(), this);
         getLogger().log(Level.INFO, "Events registered!");
         getCommand("kkchat").setExecutor(new CommandHandler());
-        setEnabled(true);
         getLogger().log(Level.INFO, "Loaded!");
     }
 }
