@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'net.minecrell.plugin-yml.bukkit' version '0.5.2'
+    id 'net.minecrell.plugin-yml.bukkit' version '0.6.0'
 }
 
 group 'ru.kolyakot33'
